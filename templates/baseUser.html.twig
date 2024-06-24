@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('assets/output.css') }}"
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="userHeader">
+        <div class="title">
+            Task Manager
+        </div>
+        <div class="userName">
+            {% if app.user.roles[0] == 'ROLE_ADMIN' %}
+                Administrator
+            {% endif %}
+            {% block nameUser %}
+                nameUser
+            {% endblock %}
+        </div>
+    </div>
+        <div class="sideBar">
+        <a href="{{ path('app_register_employes') }}">Add Employes</a>
+    <a href="{{ path('') }}"></a>
+        </div>
+        {% block body %}{% endblock %}
+    </body>
+</html>

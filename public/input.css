@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply w-screen h-screen
+}
+
+.titleSignIn {
+    @apply m-auto w-fit text-center text-4xl font-semibold p-5
+}
+
+.signin {
+    @apply text-2xl font-semibold mb-5
+}
+
+.loginForm {
+    @apply flex flex-col w-3/12 m-auto p-5 shadow-lg drop-shadow-lg rounded-xl mt-5 border border-blue-100
+}
+
+.loginForm input {
+    @apply focus-within:h-10 rounded-xl mb-4 border border-blue-100 h-0 duration-300 pl-4 pr-4 text-lg
+}
+
+.registerButton {
+    @apply p-2 pl-4 pr-4 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-400 duration-500
+}
+
+label {
+    @apply cursor-pointer
+}
+
+.Logged_as {
+    @apply p-2 bg-blue-300 rounded-lg border border-blue-400
+    mt-4
+}
+
+.loginForm a {
+    @apply font-semibold hover:text-white duration-300
+}

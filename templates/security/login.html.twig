@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task Manager
+{% endblock %}
+
+{% block body %}
+	<h1 class="titleSignIn">Task Manager</h1>
+	<form method="post" class="loginForm">
+		{% if error %}
+			<div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+
+		<h1 class="signin">Sign in</h1>
+		<label for="username">Email</label>
+		<input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+		<label for="password">Password</label>
+		<input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+
+		<input
+		type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+		{#
+				            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+				            See https://symfony.com/doc/current/security/remember_me.html
+				
+				            <div class="checkbox mb-3">
+				                <label>
+				                    <input type="checkbox" name="_remember_me"> Remember me
+				                </label>
+				            </div>
+				        #}
+
+		<button class="registerButton" type="submit">
+			Sign in
+		</button>
+
+		{% if app.user %}
+			<div class="Logged_as">
+				You are logged in as
+				{{ app.user.name }}
+				{{ app.user.firstname }},
+
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+		{% endif %}
+
+	</form>
+{% endblock %}
